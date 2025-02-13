@@ -20,7 +20,7 @@ double funeval( const double &x ){
 void cruces_cero( double (*f)(const double &), const double &xl, const double &xu ){
   // El primer parámetro de esta función es un puntero a una función de la forma
   // double (*p)(const double&)
-  double anterior = 0., actual;  
+  double anterior = -0.01, actual;  
   for(int i = xl; i<xu; i++){
     actual = f( (double)i );
     if((anterior >= 0 && actual < 0 ) || (anterior < 0 && actual >= 0))
@@ -34,7 +34,7 @@ int main(){
   printf("\n");
   cruces_cero(funeval2, 0, 100);// En este otro a sin(x/10)+cos(3*x/100)
   printf("Cruces por cero Cos(5*pi/25)\n");
-  cruces_cero(funeval3, 0, 100); //En esta caso es cos(5*pi/25)
+  cruces_cero(funeval3, 20, 80); //En esta caso es cos(5*pi/25)
   return 0;
 }
 
