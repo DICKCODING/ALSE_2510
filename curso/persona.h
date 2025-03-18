@@ -1,8 +1,11 @@
 
+#include <vector>
+#include <string>
 
+using namespace std;
 
-
-class Persona{
+class Persona
+{
   string nombre;
   string apellido;
   int doc_identidad;
@@ -10,11 +13,6 @@ class Persona{
 public:
   Persona(int docid);
 
-
   string Nombre();
-  void Nombre( const string &nombre);
-
-
-
-
+  void Nombre(const string &nombre);
 };
