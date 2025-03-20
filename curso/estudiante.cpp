@@ -3,36 +3,40 @@
 #include <iostream>
 using namespace std;
 
-Estudiante::Estudiante():Persona("", "", 0) 
+Estudiante::Estudiante() : Persona("", "", 0)
 {
     codigo = 0;
-
+    _promedio = 0.0;
 }
 
-
-Estudiante::Estudiante(const string &nombre, const string &apellido, const int &docid, const int &cod):Persona(nombre, apellido, docid) 
+Estudiante::Estudiante(const string &nombre, const string &apellido, const int &docid, const int &cod)
+    : Persona(nombre, apellido, docid)
 {
     codigo = cod;
+    _promedio = 0.0;
 }
 
-void Estudiante::agregarNota(const double &nota) 
+void Estudiante::agregarNota(const double &nota)
 {
     notas.push_back(nota);
 }
 
-double Estudiante::Promedio() const
+double Estudiante::Promedio()
 {
-    double promedio = 0.0;
-    for(int i = 0; i < notas.size(); i++)
-    {
-        promedio += notas[i];
-    }    
 
-   return promedio / notas.size();
+    if (_promedio == 0.0)
+    {
+        for (int i = 0; i < notas.size(); i++)
+        {
+            _promedio += notas[i];
+        }
+        _promedio /= notas.size();
+    }
+    return _promedio;
 }
 
-ostream &operator<<(ostream &os,const Estudiante &e)
+ostream &operator<<(ostream &os, const Estudiante &e)
 {
-    os << "ID: " << e.codigo << " Nombre: " << e.Nombre() << " Apellido: " << e.Apellido() << " Promedio: " << e.Promedio();
+    os << "ID: " << e.codigo << " Nombre: " << e.Nombre() << e.Apellido() << " Promedio: " << e._promedio;
     return os;
 }
