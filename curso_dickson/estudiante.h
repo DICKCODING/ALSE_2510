@@ -15,7 +15,7 @@ class Estudiante : public Persona
 public:
     Estudiante(const int &cod);
     Estudiante(const string &nombre, const string &apellido, const int &docid, const int &cod);
-    int Codigo();
+    int Codigo() const;
     void agregarNota(const double &nota);
     double promedio();
     friend ostream &operator<<(ostream &os, const Estudiante &e);

@@ -11,7 +11,7 @@ void Persona::Nombre(const string &nombre)
 {
     this->nombre = nombre;
 }
-string Persona::Nombre()
+const string Persona::Nombre() const
 {
     return nombre;
 }
@@ -20,7 +20,7 @@ void Persona::Apellido(const string &apellido)
 {
     this->apellido = apellido;
 }
-string Persona::Apellido()
+const string Persona::Apellido() const
 {
     return apellido;
 }
@@ -30,7 +30,7 @@ void Persona::Doc_identidad(const int &docid)
     doc_identidad = docid;
 }
 
-int Persona::Doc_identidad()
+const int Persona::Doc_identidad() const
 {
     return doc_identidad;
 }

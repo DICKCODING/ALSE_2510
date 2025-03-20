@@ -17,16 +17,17 @@ double Estudiante::promedio()
 }
 Estudiante::Estudiante(const string &nombre, const string &apellido, const int &docid, const int &cod) : Persona(docid)
 {
-    this->nombre = nombre;
-    this->apellido = apellido;
-    this->codigo = cod;
+    Nombre(nombre);
+    Apellido(apellido);
+    Codigo(cod);
+    Doc_identidad(docid);
 }
 ostream &operator<<(ostream &os, const Estudiante &e)
 {
-    os << "Nombre: " << e.nombre << "\n";
-    os << "Apellido: " << e.apellido << "\n";
-    os << "Documento: " << e.doc_identidad << "\n";
-    os << "Código: " << e.codigo << "\n";
+    os << "Nombre: " << e.Nombre() << "\n";
+    os << "Apellido: " << e.Apellido() << "\n";
+    os << "Documento: " << e.Doc_identidad() << "\n";
+    os << "Código: " << e.Codigo() << "\n";
     os << "Notas: ";
     for (const auto &nota : e.notas)
     {
@@ -37,5 +38,10 @@ ostream &operator<<(ostream &os, const Estudiante &e)
 Estudiante::Estudiante(const int &cod)
 {
 
-    cout << "Estudiante: " << nombre << " " << apellido << " Documento: " << doc_identidad << endl;
+    cout << "Estudiante: " << Nombre() << " " << Apellido() << " Documento: " << Doc_identidad() << endl;
+}
+
+int Estudiante::Codigo() const
+{
+    return codigo;
 }

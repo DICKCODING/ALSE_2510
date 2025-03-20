@@ -4,6 +4,8 @@
 
 int main()
 {
+    vector<Estudiante> estudiantes;
+
     Estudiante e1("Juan", "Perez", 123456, 1);
     e1.agregarNota(3.5);
     e1.agregarNota(4.5);
