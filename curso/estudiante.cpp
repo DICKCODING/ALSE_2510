@@ -19,11 +19,11 @@ Estudiante::Estudiante(const string &nombre, const string &apellido, const int &
 void Estudiante::agregarNota(const double &nota)
 {
     notas.push_back(nota);
+    Promedio();
 }
 
 double Estudiante::Promedio()
 {
-
     if (_promedio == 0.0)
     {
         for (int i = 0; i < notas.size(); i++)
@@ -35,8 +35,13 @@ double Estudiante::Promedio()
     return _promedio;
 }
 
+bool Estudiante::operator<(const Estudiante &e) const
+{
+    return _promedio < e._promedio;
+}
+
 ostream &operator<<(ostream &os, const Estudiante &e)
 {
-    os << "ID: " << e.codigo << " Nombre: " << e.Nombre() << e.Apellido() << " Promedio: " << e._promedio;
+    os << e.codigo << " " << e.Nombre() << " " << e.Apellido() << " Promedio: " << e._promedio;
     return os;
 }

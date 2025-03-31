@@ -16,5 +16,6 @@ public:
   double Nota(const int &i);
   void agregarNota(const double &nota);
   double Promedio();
+  bool operator<(const Estudiante &e) const;
   friend ostream &operator<<(ostream &os, const Estudiante &e);
 };
